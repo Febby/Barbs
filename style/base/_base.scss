@@ -30,11 +30,6 @@ body {
   height: 100vh;
   background: $color-secondary-light;
   font-family: $font;
-
-  @include responsive(tab-port) {
-    // width <900?
-    padding: 0;
-  }
 }
 
 ::selection {
@@ -68,11 +63,15 @@ ul {
 }
 
 main {
+  display: flex;
+  margin-top: 3em;
+  position: relative;
+  z-index: 3;
   @include responsive(phone) {
     // width < 600
     // 2 column layout
     display: flex;
-    margin-top: 3em;
+    margin-top: 5em;
     position: relative;
     z-index: 3;
   }
@@ -86,6 +85,7 @@ a {
 li {
   a {
     margin-right: 2em;
+    font-size: 1.4rem;
   }
 }
 
@@ -105,7 +105,7 @@ img {
 }
 
 .wrapper {
-  padding: 1em;
+  padding: 2em;
 
   @include responsive(phone) {
     // width < 600
@@ -116,9 +116,10 @@ img {
 
 .cta {
   display: block;
-  padding: 2em 2em 2em 0;
+  padding: 2em 2em 2em 2em;
+  margin-right: 2em;
   background: $color-primary;
-  font-size: 1.4em;
+  font-size: 1.4rem;
   @include responsive(phone) {
     // width < 600
     padding: 1em;

@@ -30,9 +30,13 @@ const contentAnimation = function () {
     opacity: 0,
   });
 
-  tl.to('img', {
-    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-  });
+  tl.to(
+    'img',
+    {
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+    },
+    '-=1.2'
+  );
 };
 
 const delay = function (n) {
