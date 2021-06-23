@@ -1,0 +1,138 @@
+//reset style
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // defined what 1rem is
+  font-size: 62.5%; // 1rem = 10px ; 10px /16px = 62.5%
+
+  @include responsive(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; // 1 rem = 9px , 9/16 = 56.25%
+  }
+
+  @include responsive(tab-port) {
+    // width <900?
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+  @include responsive(lg-screen) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+//structure
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  background: $color-secondary-light;
+  font-family: $font;
+
+  @include responsive(tab-port) {
+    // width <900?
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-primary;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin-right: auto;
+
+  &.transition {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    pointer-events: none;
+
+    & li {
+      transform: scaleY(0);
+      background: $color-primary;
+      width: 20%;
+    }
+  }
+}
+
+main {
+  @include responsive(phone) {
+    // width < 600
+    // 2 column layout
+    display: flex;
+    margin-top: 3em;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  a {
+    margin-right: 2em;
+  }
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 1.5em;
+}
+
+img {
+  width: 100%;
+  //Initial state, hide image and animate using GSAP
+  clip-path: polygon(0 0, 100% 0, 0 0);
+  @include responsive(phone) {
+    // width < 600
+    width: 40rem;
+  }
+}
+
+.wrapper {
+  padding: 1em;
+
+  @include responsive(phone) {
+    // width < 600
+    max-width: 95rem;
+    margin: 0 auto;
+  }
+}
+
+.cta {
+  display: block;
+  padding: 2em 2em 2em 0;
+  background: $color-primary;
+  font-size: 1.4em;
+  @include responsive(phone) {
+    // width < 600
+    padding: 1em;
+    background: $color-primary;
+    position: absolute;
+    z-index: 21 !important;
+    width: 80%;
+    animation-fill-mode: initial;
+  }
+}
+
+.left {
+  @include responsive(phone) {
+    // width < 600
+    padding-right: 2em;
+  }
+}
